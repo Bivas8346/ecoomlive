@@ -19,7 +19,7 @@ const Single = () => {
       order_id: data.id,
       handler: async (response) => {
         try {
-          const verifyUrl = "http://localhost:4252/api/verify";
+          const verifyUrl = "https://razorpay-testpaybackend.onrender.com/api/verify";
           const { data } = await axios.post(verifyUrl, response);
           console.log(data);
         }
@@ -37,7 +37,7 @@ const Single = () => {
 
   const handlePayment = async () => {
     try {
-      const orderUrl = "http://localhost:4252/api/orders";
+      const orderUrl = "https://razorpay-testpaybackend.onrender.com/api/orders";
       const { data } = await axios.post(orderUrl, { amount: product.price });
       console.log(data);
       initPayment(data.data)
